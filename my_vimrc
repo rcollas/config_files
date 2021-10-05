@@ -1,0 +1,47 @@
+set autoindent
+set smartindent
+set number
+syntax on 
+nnoremap <F3> <C-w><C-w>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <Left> :tabprevious<CR>
+nnoremap <Right> :tabnext<CR>
+nnoremap <Up> :tabnew<CR>
+nnoremap <F4> :w<CR>
+nnoremap <F5> :wq<CR>
+
+"vim terminal mode shortcuts
+tnoremap <F3> <C-w><C-w>
+
+"vundle/plugins configuration
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'dense-analysis/ale'
+
+Plugin 'preservim/nerdtree'
+
+Plugin 'mhartington/oceanic-next'
+
+call vundle#end()
+filetype plugin indent on
+
+"ale config
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
+syntax enable
+set background=dark
+if (has("termguicolors"))
+	set termguicolors
+endif
+
+colorscheme OceanicNext
+
+let g:airline_theme='oceanicnext'
