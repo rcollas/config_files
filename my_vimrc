@@ -1,14 +1,14 @@
 set autoindent
 set smartindent
 set number
+set mouse=a
 syntax on 
 nnoremap <F3> <C-w><C-w>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <Left> :tabprevious<CR>
 nnoremap <Right> :tabnext<CR>
-nnoremap <Up> :tabnew<CR>
-nnoremap <F4> :w<CR>
-nnoremap <F5> :wq<CR>
+"nnoremap <Up> :tabnew<CR>
+nnoremap <F4> :TagbarToggle<CR>
 
 "vim terminal mode shortcuts
 tnoremap <F3> <C-w><C-w>
@@ -29,6 +29,10 @@ Plugin 'preservim/nerdtree'
 
 Plugin 'mhartington/oceanic-next'
 
+Plugin 'majutsushi/tagbar'
+
+Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -45,3 +49,10 @@ endif
 colorscheme OceanicNext
 
 let g:airline_theme='oceanicnext'
+
+au VimEnter *.c :NERDTree
+au VimEnter *.c wincmd p
+au VimEnter *.c :Tagbar
+au VimEnter *.c :bel term zsh
+au VimEnter *.c  wincmd k
+au VimEnter *.c 20 wincmd +
